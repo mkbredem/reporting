@@ -4,7 +4,7 @@
 
   tasks:
     - name: show job list
-      ansible.tower_job_list:
+      ansible.controller.job_list:
         status: successful
         #query: {"playbook": "testing.yml"}
         #tower_config_file: "~/tower_cli.cfg"
