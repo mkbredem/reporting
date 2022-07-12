@@ -6,6 +6,7 @@
     - name: show job list
       ansible.controller.job_list:
         status: successful
+        controller_host: tower.shadowman.dev
         #query: {"playbook": "testing.yml"}
         #tower_config_file: "~/tower_cli.cfg"
       register: r_job_output
