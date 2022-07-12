@@ -1,0 +1,15 @@
+---
+- name: Show successful approvals for audit
+  hosts: all
+
+  tasks:
+    - name: show job list
+      ansible.tower_job_list:
+        status: successful
+        #query: {"playbook": "testing.yml"}
+        #tower_config_file: "~/tower_cli.cfg"
+      register: r_job_output
+
+    - name: show r_job_output
+      debug:
+        var: r_job_output 
