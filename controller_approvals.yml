@@ -6,7 +6,10 @@
     - name: show job list
       ansible.controller.job_list:
         status: successful
-        controller_host: tower.shadowman.dev
+        validate_certs: false
+        controller_username: "{{ lookup('env', 'TOWER_USERNAME') }}"
+        controller_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
+        controller_host: "{{ lookup('env', 'TOWER_HOST') }}"
         #query: {"playbook": "testing.yml"}
         #tower_config_file: "~/tower_cli.cfg"
       register: r_job_output
