@@ -18,4 +18,6 @@
 
     - name: show r_job_output
       debug:
-        var: r_job_output 
+        var: r_job_output.summary_field.source_workflow_job.name
+      loop: "{{ r_job_output }}"
+      when: r_job_output.summary_field.source_workflow_job.id == 41004
