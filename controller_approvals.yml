@@ -11,6 +11,7 @@
         controller_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
         controller_host: "{{ lookup('env', 'TOWER_HOST') }}"
         query: {"Workflow Job Template": "Multi Hypervisor Create & Config VM, Deploy Web App with Failure Paths Citrix"}
+        all_pages: true
         #query: {"playbook": "testing.yml"}
         #tower_config_file: "~/tower_cli.cfg"
       register: r_job_output
