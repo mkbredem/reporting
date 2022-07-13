@@ -16,7 +16,7 @@
 
     - name: what does dict2items coversion look like
       debug:  
-        var: r_job_output | dict2items
+        var: r_job_output.results[0] | dict2items
 
 #    - name: show r_job_output
 #      debug:
