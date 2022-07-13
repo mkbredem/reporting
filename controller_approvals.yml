@@ -14,8 +14,12 @@
         all_pages: true
       register: r_job_output
 
-    - name: show r_job_output
-      debug:
-        var: r_job_output.summary_fields.source_workflow_job.name
-      loop: "{{ r_job_output }}"
-      when: r_job_output.summary_fields.source_workflow_job.id == 41004
+    - name: what does dict2items coversion look like
+      debug:  
+        var: dict2items | r_job_output
+
+#    - name: show r_job_output
+#      debug:
+#        var: r_job_output.summary_fields.source_workflow_job.name
+#      loop: "{{ r_job_output }}"
+#      when: r_job_output.summary_fields.source_workflow_job.id == 41004
