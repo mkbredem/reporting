@@ -18,7 +18,7 @@
       debug:  
         var: item.summary_fields.source_workflow_job.name
       loop: "{{ r_job_output.results }}"
-      when: item.summary_fields.source_workflow_job.name == "Multi Hypervisor Create & Config VM, Deploy Web App with Failure Paths Citrix"
+      when: item.summary_fields.source_workflow_job.name is defined
 
 #    - name: show r_job_output
 #      debug:
