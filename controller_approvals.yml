@@ -16,7 +16,7 @@
 
     - name: Job summary fields
       debug:  
-        var: item.summary_fields
+        var: item.summary_fields.source_workflow_job.name
       loop: "{{ r_job_output.results }}"
 
 #    - name: show r_job_output
