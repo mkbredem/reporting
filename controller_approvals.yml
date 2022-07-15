@@ -16,7 +16,7 @@
 
     - name: what does dict2items coversion look like
       debug:  
-        var: item
+        var: item.summary_fields
       loop: "{{ r_job_output.results }}"
 
 #    - name: show r_job_output
