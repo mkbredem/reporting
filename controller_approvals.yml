@@ -14,7 +14,7 @@
         all_pages: true
       register: r_job_output
 
-    - name: what does dict2items coversion look like
+    - name: Job summary fields
       debug:  
         var: item.summary_fields
       loop: "{{ r_job_output.results }}"
