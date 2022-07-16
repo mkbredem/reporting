@@ -21,14 +21,13 @@
       when: item.summary_fields.source_workflow_job.name is defined
       register: r_src_wfjt_name
 
-    - name: initialize workflow_names as an empty list
-      set_fact:
-        workflow_names: []
+#    - name: initialize workflow_names as an empty list
+#      set_fact:
+#        workflow_names: []
 
     - name: load wfjt names into list
-      set_stats:
-        data: 
-          workflow_names: "{{ workflow_names + [ item.summary_fields.source_workflow_job.name ] }}"
+      set_fact:
+        workflow_names: "{{ workflow_names + [ item.summary_fields.source_workflow_job.name ] }}"
       loop: "{{ r_job_output.results }}"
       when: item.summary_fields.source_workflow_job.name is defined
       
