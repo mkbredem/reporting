@@ -40,7 +40,7 @@
 
     - name: make workflow_info unique
       set_fact: 
-        workflow_info: "{{ wofkflow_info | unique }}"
+        workflow_info: "{{ workflow_info | unique }}"
 
     - name: show wfjt names
       debug:
