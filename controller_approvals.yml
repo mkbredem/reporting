@@ -36,7 +36,12 @@
         workflow_info: "{{ workflow_info + [ {'name' : item.summary_fields.source_workflow_job.name, 'id' : item.summary_fields.source_workflow_job.id } ] }}" 
       loop: "{{ r_job_output.results }}"
       when: item.summary_fields.source_workflow_job.name is defined
-      
+      # good post on appending dictionaries to list: https://www.middlewareinventory.com/blog/ansible-list-examples-how-to-create-and-append-items-to-list/
+
+    - name: make workflow_info unique
+      set_fact: 
+        workflow_info: "{{ wofkflow_info | unique }}"
+
     - name: show wfjt names
       debug:
         var: workflow_info
