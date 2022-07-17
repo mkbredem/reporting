@@ -23,11 +23,11 @@
 
     - name: initialize workflow_names as an empty list
       set_fact:
-        workflow_names: []
+        workflow_info: []
 
     - name: load wfjt names into list
       set_fact:
-        workflow_names: "{{ workflow_names + [ item.summary_fields.source_workflow_job.name ] }}"
+        workflow_info: "{{ workflow_info + [ item.summary_fields.source_workflow_job.name, item.summary_fields.source_workflow_job.id ] }}"
       loop: "{{ r_job_output.results }}"
       when: item.summary_fields.source_workflow_job.name is defined
       
