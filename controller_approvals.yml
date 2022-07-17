@@ -25,11 +25,11 @@
       set_fact:
         workflow_info: []
 
-    - name: load wfjt names into list
-      set_fact:
-        workflow_info: "{{ workflow_info + [ item.summary_fields.source_workflow_job.name, item.summary_fields.source_workflow_job.id ] }}" 
-      loop: "{{ r_job_output.results }}"
-      when: item.summary_fields.source_workflow_job.name is defined
+#    - name: load wfjt names into list
+#      set_fact:
+#        workflow_info: "{{ workflow_info + [ item.summary_fields.source_workflow_job.name, item.summary_fields.source_workflow_job.id ] }}" 
+#      loop: "{{ r_job_output.results }}"
+#      when: item.summary_fields.source_workflow_job.name is defined
 
     - name: load wfjt names into list
       set_fact:
