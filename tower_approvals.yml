@@ -1,8 +1,6 @@
 ---
 - name: get approvals list
   hosts: localhost
-  vars:
-
 
   tasks:
   - include_vars: credential.yml
