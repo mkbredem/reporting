@@ -3,34 +3,34 @@
   hosts: localhost
 
   tasks:
-    - name: get authtoken
-      uri:
-        url: https://54.172.168.17/api/login/
-        method: POST
-        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
-        body_format: json
-        validate_certs: no
-      register: authtoken
+#    - name: get authtoken
+#      uri:
+#        url: https://54.172.168.17/api/login/
+#        method: POST
+#        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
+#        body_format: json
+#        validate_certs: no
+#      register: authtoken
 
     - name: show authtoken
       debug:  
-        var: authtoken.token
+        var: authtoken
 
-#  - name: get credentials
-#    uri:
-#      url: "https://54.172.168.17/api/v2/workflow_approvals/"
-#      method: GET
-#      return_content: yes
-#      headers: 
-#        Authorization: "Token %variable authtoken.json.token%"
-#      validate_certs: False
-#      #force_basic_auth: yes
-#      #user: admin
-#      #password: "{{ lookup('env', 'TOWER_PASSWORD') | password_hash('sha512') }}"
-#      status_code:
-#        - 200
-#    register: r_api_approval_output
+    - name: get credentials
+      uri:
+        url: "https://54.172.168.17/api/v2/workflow_approvals/"
+        method: GET
+        return_content: yes
+        headers: 
+          Authorization: "Token {{ authtoken }}"
+        validate_certs: False
+      #force_basic_auth: yes
+      #user: admin
+      #password: "{{ lookup('env', 'TOWER_PASSWORD') | password_hash('sha512') }}"
+        status_code:
+          - 200
+      register: r_api_approval_output
 
-#  - name: show api approval output
-#    debug:
-#      var: r_api_approval_output
+    - name: show api approval output
+      debug:
+        var: r_api_approval_output
