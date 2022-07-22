@@ -22,7 +22,7 @@
           "ID: {{ item.id }} WFJT_Name: {{item.summary_fields.workflow_job_template.name}}"
           "Approval Node: {{ item.summary_fields.workflow_approval_template.name }}"
           ""
-      loop: "{{ r_api_approval_output }}"
+      loop: "{{ r_api_approval_output.json.results }}"
 
 #    - name: get authtoken
 #      uri:
