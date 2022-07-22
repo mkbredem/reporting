@@ -3,14 +3,14 @@
   hosts: localhost
 
   tasks:
-    - name: get authtoken
-      uri:
-        url: https://54.172.168.17/api/v2/tokens/
-        method: POST
-        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
-        body_format: json
-        validate_certs: no
-      register: authtoken
+#    - name: get authtoken
+#      uri:
+#        url: https://54.172.168.17/api/v2/tokens/
+#        method: POST
+#        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
+#        body_format: json
+#        validate_certs: no
+#      register: authtoken
 
     - name: show authtoken
       debug:  
@@ -22,7 +22,7 @@
         method: GET
         return_content: yes
         headers: 
-          Authorization: "Token {{ authtoken }}"
+          Authorization: Bearer {{ authtoken }}
         validate_certs: False
       #force_basic_auth: yes
       #user: admin
