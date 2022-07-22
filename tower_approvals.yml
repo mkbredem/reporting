@@ -3,14 +3,14 @@
   hosts: localhost
 
   tasks:
-#    - name: get authtoken
-#      uri:
-#        url: https://54.172.168.17/api/login/
-#        method: POST
-#        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
-#        body_format: json
-#        validate_certs: no
-#      register: authtoken
+    - name: get authtoken
+      uri:
+        url: https://54.172.168.17/api/login/
+        method: POST
+        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
+        body_format: json
+        validate_certs: no
+      register: authtoken
 
     - name: show authtoken
       debug:  
