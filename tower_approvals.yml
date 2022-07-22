@@ -3,6 +3,23 @@
   hosts: localhost
 
   tasks:
+    - name: Workflow Approvals
+      uri:
+        url: "https://54.172.168.17/api/v2/workflow_approvals/"
+        method: GET
+        return_content: yes
+        headers: 
+          Authorization: Bearer {{ authtoken }}
+        validate_certs: False
+        status_code:
+          - 200
+      register: r_api_approval_output
+
+    - name: show api approval output
+      debug:
+        msg: "ID: {{ item.id }}"
+      loop: "{{ r_api_approval_output.results }}"
+
 #    - name: get authtoken
 #      uri:
 #        url: https://54.172.168.17/api/v2/tokens/
@@ -11,26 +28,3 @@
 #        body_format: json
 #        validate_certs: no
 #      register: authtoken
-
-    - name: show authtoken
-      debug:  
-        var: authtoken
-
-    - name: get credentials
-      uri:
-        url: "https://54.172.168.17/api/v2/workflow_approvals/"
-        method: GET
-        return_content: yes
-        headers: 
-          Authorization: Bearer {{ authtoken }}
-        validate_certs: False
-      #force_basic_auth: yes
-      #user: admin
-      #password: "{{ lookup('env', 'TOWER_PASSWORD') | password_hash('sha512') }}"
-        status_code:
-          - 200
-      register: r_api_approval_output
-
-    - name: show api approval output
-      debug:
-        var: r_api_approval_output
