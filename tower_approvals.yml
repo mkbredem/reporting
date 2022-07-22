@@ -5,7 +5,7 @@
   tasks:
     - name: get authtoken
       uri:
-        url: https://54.172.168.17/api/login/
+        url: https://54.172.168.17/api/v2/tokens/
         method: POST
         body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
         body_format: json
