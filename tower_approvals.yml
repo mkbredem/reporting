@@ -6,7 +6,7 @@
   tasks:
   - name: get credentials
     uri:
-      url: "https://54.172.168.17/api/v2/workflow_approvals/"
+      url: "https://54.172.168.17/api/v2/workflow_approvals/launch"
       method: GET
       user: admin
       password: "{{ tower_password | password_hash('sha512')}}"
