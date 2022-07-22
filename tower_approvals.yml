@@ -19,7 +19,7 @@
       debug:
         msg:
           - ---------------
-          - "ID: {{ item.id }} WFJT_Name: {{item.summary_fields.workflow_job_template.name}}"
+          - "WFJT_Name: {{item.summary_fields.workflow_job_template.name}}"
           - "Approval Node: {{ item.summary_fields.workflow_approval_template.name }}"
           - "Approver: {{ item.summary_fields.approved_or_denied_by.username }}"
           - "Approval Status: {{ item.status }}"
