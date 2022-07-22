@@ -7,14 +7,14 @@
       uri:
         url: https://54.172.168.17/api/v2/tokens/
         method: POST
-        body: '{ "username": {{tower_user}}, "password": {{tower_password}} }'
+        body: '{ "username": "{{tower_user}}", "password": "{{tower_password}}" }'
         body_format: json
         validate_certs: no
       register: authtoken
 
     - name: show authtoken
       debug:  
-        var: authtoken
+        var: authtoken.token
 
 #  - name: get credentials
 #    uri:
