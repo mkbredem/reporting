@@ -1,0 +1,22 @@
+---
+- name: get approvals list
+  hosts: localhost
+  vars: 
+
+  tasks:
+  - name: get credentials
+    uri:
+      url: "https://54.172.168.17/api/v2/workflow_approvals/"
+      method: GET
+      user: admin
+      password: "{{ tower_password | password_hash('sha512')}}"
+      #password: "{{ lookup('env', 'TOWER_PASSWORD') | password_hash('sha512') }}"
+      validate_certs: False
+      force_basic_auth: yes
+      status_code:
+        - 200
+    register: r_api_approval_output
+
+  - name: show api approval output
+    debug:
+      var: r_api_approval_output
