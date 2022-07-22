@@ -3,7 +3,6 @@
   hosts: localhost
 
   tasks:
-  - include_vars: credential.yml
   - name: get authtoken
     uri:
       url: https://54.172.168.17/api/v2/tokens/
